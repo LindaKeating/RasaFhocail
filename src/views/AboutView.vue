@@ -1,5 +1,6 @@
 <script setup>
-  import { useTodaysWord } from '@/stores/todaysWord'
+  import { useTodaysWord } from '@/stores/todaysWord';
+  import { useTimerStore } from '@/stores/timer';
 
 
   import DragDrop from '../components/DragDrop.vue'
@@ -9,7 +10,8 @@
   import { storeToRefs } from 'pinia'
   
 
-  const store = useTodaysWord()
+  const store = useTodaysWord();
+  const timerStore = useTimerStore();
   const { settings, firstList, secondList, styleClass } = storeToRefs(store);
 
   onMounted(() => {
@@ -42,7 +44,7 @@
   </div>
   <button 
     v-if="!settings.gameStarted"
-    @click="store.startGame()"
+    @click="store.startGame(); timerStore.countdown();"
     class="btn btn-primary btn-lg Tomhas">Start Game</button>
   <button 
     v-if="settings.gameStarted"

@@ -2,7 +2,9 @@ import { defineStore } from 'pinia'
 import json from '../data/1.json'
 import { get } from 'jquery'
 
-const STORE_NAME = 'MoCluichí'
+const today = new Date().toLocaleDateString('en-GB');
+
+const STORE_NAME = today;
 
 const getDefaultSettings = () => ({
   word: "",
