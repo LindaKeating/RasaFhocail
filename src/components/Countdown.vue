@@ -11,8 +11,8 @@
   const gameStore = useTodaysWord()
 
   onMounted(() => {
-     //timerStore.countdown();
      window.addEventListener('keypress', gameStore.handleKeypress)
+     window.addEventListener('keydown', gameStore.handleKeyDown)
   })
 
 </script>

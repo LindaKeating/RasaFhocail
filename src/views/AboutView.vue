@@ -20,7 +20,8 @@
 
 </script>
 <template>
-  <div class="about container">
+  <div class="container">
+    <div class="about">
     <!-- Countdown Interface -->
     <TimerA >
       <Countdown />
@@ -50,6 +51,7 @@
     v-if="settings.gameStarted"
     @click="store.checkGuess()"
     class="btn btn-primary btn-lg Tomhas">Tomhas</button>
+  </div>
 </template>
 
 <style>

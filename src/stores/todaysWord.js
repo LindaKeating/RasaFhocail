@@ -92,8 +92,17 @@ export const useTodaysWord = defineStore('useTodaysWord', {
       let availableLetters = this.settings.firstList;
       const i = availableLetters.findIndex(e => e.title === inputKey);
 
+      // if input is in the first list push it into the second list
       if (i > -1) {
         this.settings.secondList.push(...this.settings.firstList.splice(i, 1));
+      }
+    },
+    handleKeyDown(e) {
+      if (e.key === 'Backspace') {
+        console.log(e.key)
+        let lastIndex = this.settings.secondList.length;
+        // get last item in settings.secondList and push it into settings.firstList
+        this.settings.firstList.push(...this.settings.secondList.splice(lastIndex -1, 1));
       }
     }
   }
